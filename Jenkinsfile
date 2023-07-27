@@ -16,10 +16,8 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                  deploy adapters: [tomcat9(credentialsId: '71b0d510-026e-43d2-995b-556a0efeb7b9', path: '', url: 'http://3.110.175.13:8081/')], contextPath: 'Slave', onFailure: false, war: '**/*.war'
                 }
-            }
         }
     }
 }
