@@ -1,5 +1,5 @@
 pipeline {
-    agent Slave
+    agent 'Slave'
     tools {
         maven 'M2_HOME'
     }
